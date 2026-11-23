@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1021" />
+  <title>我的第一个 GitHub Pages 网站</title>
+  <style>
+    :root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#e9efff;background:#0b1021}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 20%,#263a78 0,transparent 36%),radial-gradient(circle at 90% 10%,#443165 0,transparent 28%),#0b1021;display:grid;place-items:center;padding:30px}.card{max-width:670px;width:100%;background:#ffffff0c;border:1px solid #ffffff26;border-radius:28px;padding:clamp(26px,6vw,55px);box-shadow:0 20px 80px #0006;backdrop-filter:blur(15px)}.tag{display:inline-flex;padding:8px 13px;border:1px solid #8b95fd70;border-radius:30px;color:#abb5ff;font-size:13px}h1{font-size:clamp(31px,6vw,49px);line-height:1.2;letter-spacing:-1.3px;margin:27px 0 14px}.gradient{background:linear-gradient(95deg,#9bc9ff,#c5a6ff);color:transparent;background-clip:text}.sub{color:#b9c3dd;font-size:17px;line-height:1.8}.panel{margin-top:30px;padding:23px;border-radius:18px;background:#131d36;border:1px solid #ffffff14}.clock{font-size:37px;font-weight:750;font-variant-numeric:tabular-nums;margin:7px 0}.date{color:#a4b5d5;font-size:14px}button{background:linear-gradient(110deg,#647afa,#915ef7);border:0;color:white;font-weight:700;padding:14px 24px;border-radius:12px;font-size:15px;cursor:pointer;margin-top:26px;box-shadow:0 10px 20px #6055df40}button:hover{transform:translateY(-2px)}.msg{min-height:24px;margin-top:14px;color:#b8e9cd;font-size:14px}.foot{margin-top:25px;color:#7d8ba9;font-size:13px}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="tag">🚀 GitHub Pages · Live Demo</span>
+    <h1>你好，世界！<br/><span class="gradient">这是我的第一个在线网站。</span></h1>
+    <p class="sub">这个小项目只有一个 <code>index.html</code> 文件，不需要服务器，也不需要安装依赖。上传到 GitHub 并开启 Pages 后，任何人都能通过网址访问。</p>
+    <section class="panel"><div class="date" id="date">本地时间</div><div class="clock" id="clock">--:--:--</div><div class="date">当前时间由浏览器实时更新</div></section>
+    <button id="hello">✨ 点击试试交互</button>
+    <div class="msg" id="message" aria-live="polite"></div>
+    <div class="foot">Made with HTML + CSS + JavaScript · Hosted on GitHub Pages</div>
+  </main>
+  <script>
+    const clock = document.getElementById('clock');
+    const date = document.getElementById('date');
+    function updateClock(){const now=new Date();clock.textContent=now.toLocaleTimeString('zh-CN',{hour12:false});date.textContent=now.toLocaleDateString('zh-CN',{year:'numeric',month:'long',day:'numeric',weekday:'long'});}
+    updateClock();setInterval(updateClock,1000);
+    let clicks=0;document.getElementById('hello').addEventListener('click',()=>{clicks++;document.getElementById('message').textContent=`🎉 点击成功！你已经点击了 ${clicks} 次。网页 JavaScript 正在运行。`;});
+  </script>
+</body>
+</html>
